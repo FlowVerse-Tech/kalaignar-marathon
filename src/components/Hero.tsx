@@ -5,11 +5,13 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { MapPin, Calendar, Award } from "lucide-react";
 import { siteContent } from "@/data/content";
+import { useMounted } from "@/hooks/useMounted";
 import { Button } from "./Button";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 
 export const Hero: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
+  const mounted = useMounted();
 
   // Animation variants
   const lineVariants = {
@@ -47,9 +49,9 @@ export const Hero: React.FC = () => {
       {/* Background Hero Photo Placeholder with subtle slow zoom */}
       <motion.div
         className="absolute inset-0 z-0 h-full w-full"
-        initial={{ scale: 1 }}
+        initial={false}
         animate={
-          prefersReducedMotion
+          prefersReducedMotion || !mounted
             ? { scale: 1 }
             : {
                 scale: [1, 1.04, 1],
@@ -81,12 +83,13 @@ export const Hero: React.FC = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full flex flex-col justify-between min-h-[75vh]">
-        {/* Top bar over hero: Trust badge (left) & Floating edition card (right) */}
-        <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6">
+      {/* Expansive Full-Screen Container */}
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 flex flex-col justify-between min-h-[75vh]">
+        {/* Top bar over hero: Trust badge (far-left) & Floating edition card (far-right) */}
+        <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4">
           {/* Top-Left Trust Badge: Avatar stack + 73,000+ registered runners */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={mounted ? { opacity: 0, y: -20 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-white shadow-lg"
@@ -103,7 +106,7 @@ export const Hero: React.FC = () => {
                 TN
               </span>
             </div>
-            <div className="text-xs">
+            <div className="text-xs sm:text-sm">
               <span className="font-bold text-white">
                 {siteContent.hero.badgeStack.count}
               </span>{" "}
@@ -116,7 +119,7 @@ export const Hero: React.FC = () => {
           {/* Top-Right Floating White Card */}
           <motion.div
             variants={cardVariants}
-            initial="hidden"
+            initial={mounted ? "hidden" : false}
             animate="visible"
             className="w-full sm:w-auto max-w-sm rounded-[22px] bg-white/95 backdrop-blur-md p-4 text-[#111111] shadow-2xl border border-white/60 transition-transform duration-300 hover:scale-[1.02]"
           >
@@ -153,27 +156,27 @@ export const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Hero Content: Headline, Sub-paragraph, CTA */}
-        <div className="max-w-3xl mt-16 sm:mt-24">
+        {/* Bottom Hero Content: Expansive Headline, Sub-paragraph, CTA */}
+        <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mt-16 sm:mt-24">
           {/* Eyebrow badge */}
           <motion.div
             custom={0}
             variants={lineVariants}
-            initial="hidden"
+            initial={mounted ? "hidden" : false}
             animate="visible"
-            className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md px-3.5 py-1 text-white text-xs font-semibold tracking-wider uppercase mb-5 border border-white/20"
+            className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md px-4 py-1.5 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 border border-white/20"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#F26A1B]" />
+            <span className="h-2 w-2 rounded-full bg-[#F26A1B]" />
             {siteContent.hero.motto}
           </motion.div>
 
-          {/* Large Headline */}
+          {/* Large Headline spanning across */}
           <motion.h1
             custom={1}
             variants={lineVariants}
-            initial="hidden"
+            initial={mounted ? "hidden" : false}
             animate="visible"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05]"
           >
             {siteContent.hero.headline}
           </motion.h1>
@@ -182,9 +185,9 @@ export const Hero: React.FC = () => {
           <motion.p
             custom={2}
             variants={lineVariants}
-            initial="hidden"
+            initial={mounted ? "hidden" : false}
             animate="visible"
-            className="mt-6 text-base sm:text-lg md:text-xl text-neutral-200 leading-relaxed max-w-2xl font-normal"
+            className="mt-6 text-lg sm:text-xl md:text-2xl text-neutral-200 leading-relaxed max-w-3xl font-normal"
           >
             {siteContent.hero.subparagraph}
           </motion.p>
@@ -193,21 +196,21 @@ export const Hero: React.FC = () => {
           <motion.div
             custom={3}
             variants={lineVariants}
-            initial="hidden"
+            initial={mounted ? "hidden" : false}
             animate="visible"
-            className="mt-8 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-5"
           >
             <Button
               variant="orange"
               size="lg"
               isRegistrationCTA={true}
-              className="text-base"
+              className="text-base sm:text-lg px-8 py-4"
             >
               {siteContent.hero.ctaText}
             </Button>
             <Link
               href="#about"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white px-4 py-2 transition-colors"
+              className="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-white/80 hover:text-white px-4 py-2 transition-colors"
             >
               <span>Explore Track Record</span>
               <span className="text-white/50">↓</span>

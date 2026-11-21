@@ -5,14 +5,17 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { siteContent } from "@/data/content";
 
-// High quality crisp SVG icons for social channels
+// Reliable SVG icons with explicit stroke & fill attributes
 const SocialIcon: React.FC<{ name: string }> = ({ name }) => {
   switch (name) {
     case "Instagram":
       return (
         <svg
-          className="w-4 h-4 fill-none stroke-currentColor stroke-2"
+          className="w-4 h-4"
           viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
@@ -24,7 +27,7 @@ const SocialIcon: React.FC<{ name: string }> = ({ name }) => {
     case "X":
     case "Twitter":
       return (
-        <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       );
@@ -32,24 +35,26 @@ const SocialIcon: React.FC<{ name: string }> = ({ name }) => {
     case "Youtube":
       return (
         <svg
-          className="w-4 h-4 fill-none stroke-currentColor stroke-2"
+          className="w-4 h-4"
           viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
           <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-          <path d="m10 15 5-3-5-3z" fill="currentColor" />
+          <path d="m10 15 5-3-5-3z" fill="currentColor" stroke="none" />
         </svg>
       );
     case "Facebook":
       return (
         <svg
-          className="w-4 h-4 fill-none stroke-currentColor stroke-2"
+          className="w-4 h-4"
           viewBox="0 0 24 24"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          fill="currentColor"
         >
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg>
       );
     default:
@@ -70,30 +75,30 @@ export const Footer: React.FC = () => {
   return (
     <footer
       aria-label="Site Footer"
-      className="bg-white text-[#111111] pt-20 pb-12 border-t border-black/[0.06] overflow-hidden"
+      className="bg-white text-[#111111] pt-20 pb-12 border-t border-black/[0.06] overflow-hidden w-full"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         {/* Four Columns Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-black/[0.06]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-14 pb-16 border-b border-black/[0.06]">
           {/* Col 1: Brand & Blurb (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-extrabold tracking-tight text-[#111111]">
+                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#111111]">
                   {siteContent.brand.shortName}
                 </span>
                 <span className="h-2 w-2 rounded-full bg-[#F26A1B]" />
               </div>
-              <p className="mt-1 text-[10px] font-bold tracking-widest uppercase text-[#F26A1B]">
+              <p className="mt-1 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#F26A1B]">
                 {siteContent.brand.motto}
               </p>
-              <p className="mt-4 text-xs sm:text-sm text-[#6B7280] leading-relaxed max-w-sm">
+              <p className="mt-4 text-xs sm:text-sm text-[#6B7280] leading-relaxed max-w-md">
                 {siteContent.footer.aboutBlurb}
               </p>
             </div>
 
             {/* Social Icons Squares */}
-            <div className="mt-6 flex items-center gap-2.5">
+            <div className="mt-8 flex items-center gap-3">
               {siteContent.footer.socials.map((social) => (
                 <a
                   key={social.name}
@@ -101,9 +106,9 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Official ${social.name} page`}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-black/10 bg-[#FAFAFA] text-[#111111] transition-all hover:border-[#F26A1B] hover:bg-[#F26A1B] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-[#FAFAFA] text-[#111111] transition-all hover:border-[#F26A1B] hover:bg-[#F26A1B] hover:text-white shadow-2xs"
                 >
-                  <SocialIcon name={social.iconName} />
+                  <SocialIcon name={social.name} />
                 </a>
               ))}
             </div>
@@ -111,10 +116,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Pages (Smooth-scroll links) (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-4">
+            <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#111111] mb-4">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#6B7280]">
+            <ul className="space-y-3 text-xs sm:text-sm text-[#6B7280]">
               {siteContent.footer.linksPages.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -130,10 +135,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Reference & Resources (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-4">
+            <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#111111] mb-4">
               Reference
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#6B7280]">
+            <ul className="space-y-3 text-xs sm:text-sm text-[#6B7280]">
               {siteContent.footer.linksReference.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -149,15 +154,15 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Newsletter & Press Updates (4 cols) */}
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-1">
+            <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#111111] mb-1">
               {siteContent.footer.newsletter.heading}
             </h4>
-            <p className="text-xs text-[#6B7280] mb-4 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#6B7280] mb-5 leading-relaxed">
               {siteContent.footer.newsletter.subtext}
             </p>
 
             {subscribed ? (
-              <div className="flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2.5 text-xs font-semibold text-emerald-800 border border-emerald-200">
+              <div className="flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-3 text-xs sm:text-sm font-semibold text-emerald-800 border border-emerald-200">
                 <Check className="w-4 h-4 text-emerald-600" />
                 <span>Thank you for subscribing.</span>
               </div>
@@ -169,35 +174,61 @@ export const Footer: React.FC = () => {
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder={siteContent.footer.newsletter.placeholder}
-                  className="w-full rounded-full border border-black/10 bg-[#FAFAFA] pl-4 pr-12 py-2.5 text-xs text-[#111111] placeholder:text-[#9CA3AF] focus:border-[#F26A1B] focus:bg-white focus:outline-hidden transition-all"
+                  className="w-full rounded-full border border-black/10 bg-[#FAFAFA] pl-5 pr-14 py-3 text-xs sm:text-sm text-[#111111] placeholder:text-[#9CA3AF] focus:border-[#F26A1B] focus:bg-white focus:outline-hidden transition-all"
                 />
                 <button
                   type="submit"
                   aria-label="Submit newsletter subscription"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full bg-[#F26A1B] text-white hover:bg-[#DC5A10] transition-colors"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-[#F26A1B] text-white hover:bg-[#DC5A10] transition-colors"
                 >
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
             )}
 
-            <p className="mt-3 text-[10px] text-[#9CA3AF] leading-tight">
+            <p className="mt-3 text-[11px] text-[#9CA3AF] leading-normal">
               {siteContent.footer.disclaimer}
             </p>
           </div>
         </div>
 
-        {/* Giant Wordmark "Kalaignar Marathon" with Orange-to-White Vertical Gradient Fade */}
-        <div className="pt-12 pb-4 text-center select-none overflow-hidden">
-          <div className="relative">
-            <h2 className="text-[10vw] sm:text-[11vw] font-black tracking-tighter leading-none uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#F26A1B]/70 via-[#F26A1B]/20 to-white/0">
+        {/* Giant Wordmark "Kalaignar Marathon" - Full width responsive SVG scaling */}
+        {/* Ensures the ENTIRE phrase "KALAIGNAR MARATHON" fits 100% on any screen without truncation */}
+        <div className="pt-10 pb-4 text-center select-none overflow-hidden w-full">
+          <svg
+            viewBox="0 0 1350 140"
+            className="w-full h-auto max-h-[160px] pointer-events-none select-none"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label={siteContent.footer.wordmark}
+            role="img"
+          >
+            <defs>
+              <linearGradient id="wordmarkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#F26A1B" stopOpacity="0.85" />
+                <stop offset="45%" stopColor="#F26A1B" stopOpacity="0.4" />
+                <stop offset="85%" stopColor="#F26A1B" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <text
+              x="50%"
+              y="110"
+              textAnchor="middle"
+              fill="url(#wordmarkGrad)"
+              style={{
+                fontFamily: "var(--font-inter), system-ui, sans-serif",
+                fontSize: "116px",
+                fontWeight: 900,
+                letterSpacing: "-0.045em",
+              }}
+            >
               {siteContent.footer.wordmark}
-            </h2>
-          </div>
+            </text>
+          </svg>
         </div>
 
         {/* Small Bottom Copyright Line */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9CA3AF]">
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9CA3AF]">
           <p>{siteContent.footer.copyright}</p>
           <div className="flex items-center gap-6">
             <span className="hover:text-[#6B7280] transition-colors cursor-pointer">

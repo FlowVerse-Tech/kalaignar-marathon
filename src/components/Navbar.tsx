@@ -12,12 +12,12 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
+
+    // Run on initial mount to catch any pre-scrolled page states
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -25,13 +25,13 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-black/[0.06] shadow-xs py-3.5"
+            ? "bg-white/95 backdrop-blur-md border-b border-black/[0.06] shadow-sm py-3.5"
             : "bg-transparent py-5"
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
+        <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 flex items-center justify-between">
           {/* Left: Wordmark / Logo placeholder */}
           <Link
             href="#hero"
@@ -40,16 +40,16 @@ export const Navbar: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <span
-                className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-200 ${
+                className={`text-lg sm:text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-200 ${
                   scrolled ? "text-[#111111]" : "text-white"
                 }`}
               >
                 {siteContent.brand.shortName}
               </span>
-              <span className="h-2 w-2 rounded-full bg-[#F26A1B] shrink-0 animate-pulse" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#F26A1B] shrink-0 animate-pulse" />
             </div>
             <span
-              className={`text-[9px] font-semibold tracking-widest uppercase transition-colors duration-200 ${
+              className={`text-[9px] sm:text-[10px] font-semibold tracking-widest uppercase transition-colors duration-200 ${
                 scrolled ? "text-[#6B7280]" : "text-white/70"
               }`}
             >
@@ -62,15 +62,15 @@ export const Navbar: React.FC = () => {
             aria-label="Main Navigation"
             className={`hidden md:flex items-center gap-1 rounded-full px-4 py-1.5 transition-colors duration-200 ${
               scrolled
-                ? "bg-neutral-100/80 border border-black/[0.04]"
-                : "bg-black/25 backdrop-blur-md border border-white/15"
+                ? "bg-neutral-100/90 border border-black/[0.05]"
+                : "bg-black/35 backdrop-blur-md border border-white/15"
             }`}
           >
             {siteContent.navigation.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                className={`group flex items-center gap-1.5 px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-all duration-200 ${
                   scrolled
                     ? "text-[#4B5563] hover:text-[#111111] hover:bg-white"
                     : "text-white/80 hover:text-white hover:bg-white/10"
@@ -87,7 +87,7 @@ export const Navbar: React.FC = () => {
           {/* Right CTA Button (Desktop) */}
           <div className="hidden md:flex items-center gap-3">
             <Button
-              variant={scrolled ? "white" : "white"}
+              variant={scrolled ? "orange" : "white"}
               size="sm"
               isRegistrationCTA={true}
             />
