@@ -55,6 +55,11 @@ export const PartnerWithUs: React.FC = () => {
               aspectRatio="aspect-[4/3]"
               tilt={-8}
               className="border-white border-4 shadow-xl"
+              src={siteContent.images.partnerCivic.src}
+              alt={siteContent.images.partnerCivic.alt}
+              objectPosition={siteContent.images.partnerCivic.objectPosition}
+              blurDataURL={siteContent.images.partnerCivic.blurDataURL}
+              sizes={siteContent.images.partnerCivic.sizes}
             />
           </div>
 
@@ -65,6 +70,11 @@ export const PartnerWithUs: React.FC = () => {
               aspectRatio="aspect-[4/3]"
               tilt={7}
               className="border-white border-4 shadow-xl"
+              src={siteContent.images.partnerBranding.src}
+              alt={siteContent.images.partnerBranding.alt}
+              objectPosition={siteContent.images.partnerBranding.objectPosition}
+              blurDataURL={siteContent.images.partnerBranding.blurDataURL}
+              sizes={siteContent.images.partnerBranding.sizes}
             />
           </div>
 
@@ -75,6 +85,11 @@ export const PartnerWithUs: React.FC = () => {
               aspectRatio="aspect-[4/3]"
               tilt={6}
               className="border-white border-4 shadow-xl"
+              src={siteContent.images.partnerMedical.src}
+              alt={siteContent.images.partnerMedical.alt}
+              objectPosition={siteContent.images.partnerMedical.objectPosition}
+              blurDataURL={siteContent.images.partnerMedical.blurDataURL}
+              sizes={siteContent.images.partnerMedical.sizes}
             />
           </div>
 
@@ -85,6 +100,11 @@ export const PartnerWithUs: React.FC = () => {
               aspectRatio="aspect-[4/3]"
               tilt={-7}
               className="border-white border-4 shadow-xl"
+              src={siteContent.images.partnerSpectators.src}
+              alt={siteContent.images.partnerSpectators.alt}
+              objectPosition={siteContent.images.partnerSpectators.objectPosition}
+              blurDataURL={siteContent.images.partnerSpectators.blurDataURL}
+              sizes={siteContent.images.partnerSpectators.sizes}
             />
           </div>
         </div>
@@ -155,6 +175,54 @@ export const PartnerWithUs: React.FC = () => {
           <p className="mt-4 text-base sm:text-xl text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
             {siteContent.partnerWithUs.subtitle}
           </p>
+        </div>
+
+        {/* Responsive Photo Band for screens below 2xl */}
+        <div className="2xl:hidden relative z-10 mb-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-5xl mx-auto px-2">
+          <ImagePlaceholder
+            label={siteContent.partnerWithUs.photoPlaceholders[0].label}
+            aspectRatio="aspect-[4/3]"
+            tilt={-2}
+            className="border-white border-2 shadow-md"
+            src={siteContent.images.partnerCivic.src}
+            alt={siteContent.images.partnerCivic.alt}
+            objectPosition={siteContent.images.partnerCivic.objectPosition}
+            blurDataURL={siteContent.images.partnerCivic.blurDataURL}
+            sizes="(max-width: 640px) 50vw, 25vw"
+          />
+          <ImagePlaceholder
+            label={siteContent.partnerWithUs.photoPlaceholders[1].label}
+            aspectRatio="aspect-[4/3]"
+            tilt={2}
+            className="border-white border-2 shadow-md"
+            src={siteContent.images.partnerBranding.src}
+            alt={siteContent.images.partnerBranding.alt}
+            objectPosition={siteContent.images.partnerBranding.objectPosition}
+            blurDataURL={siteContent.images.partnerBranding.blurDataURL}
+            sizes="(max-width: 640px) 50vw, 25vw"
+          />
+          <ImagePlaceholder
+            label={siteContent.partnerWithUs.photoPlaceholders[2].label}
+            aspectRatio="aspect-[4/3]"
+            tilt={-1}
+            className="border-white border-2 shadow-md"
+            src={siteContent.images.partnerMedical.src}
+            alt={siteContent.images.partnerMedical.alt}
+            objectPosition={siteContent.images.partnerMedical.objectPosition}
+            blurDataURL={siteContent.images.partnerMedical.blurDataURL}
+            sizes="(max-width: 640px) 50vw, 25vw"
+          />
+          <ImagePlaceholder
+            label={siteContent.partnerWithUs.photoPlaceholders[3].label}
+            aspectRatio="aspect-[4/3]"
+            tilt={2}
+            className="border-white border-2 shadow-md"
+            src={siteContent.images.partnerSpectators.src}
+            alt={siteContent.images.partnerSpectators.alt}
+            objectPosition={siteContent.images.partnerSpectators.objectPosition}
+            blurDataURL={siteContent.images.partnerSpectators.blurDataURL}
+            sizes="(max-width: 640px) 50vw, 25vw"
+          />
         </div>
 
         {/* Strategic Digital Roadmap Card spanning wider */}

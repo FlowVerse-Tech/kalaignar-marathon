@@ -132,31 +132,45 @@ export const ImpactStats: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
-            {siteContent.impactStrip.recordBodies.map((body, index) => (
-              <motion.div
-                key={index}
-                initial={mounted ? { opacity: 0 } : false}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="group flex flex-col items-center rounded-[24px] bg-white/90 p-6 xl:p-8 border border-black/[0.05] shadow-2xs hover:shadow-md transition-all text-center"
-              >
-                {/* Grayscale Logo Placeholder */}
-                <div className="w-full max-w-[280px] mb-4 grayscale group-hover:grayscale-0 transition-all duration-300">
-                  <ImagePlaceholder
-                    label={body.placeholderLabel}
-                    aspectRatio="aspect-[2/1]"
-                    className="border-dashed"
-                  />
-                </div>
-                <h4 className="text-sm font-bold text-[#111111]">
-                  {body.name}
-                </h4>
-                <p className="text-xs text-[#6B7280] mt-1 max-w-xs">
-                  {body.recordTitle}
-                </p>
-              </motion.div>
-            ))}
+            {siteContent.impactStrip.recordBodies.map((body, index) => {
+              const logo =
+                body.name.includes("Guinness")
+                  ? siteContent.images.recordGuinness
+                  : body.name.includes("Asia Book")
+                  ? siteContent.images.recordAsiaBook
+                  : siteContent.images.recordWorldRecordsUnion;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={mounted ? { opacity: 0 } : false}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  className="group flex flex-col items-center rounded-[24px] bg-white/90 p-6 xl:p-8 border border-black/[0.05] shadow-2xs hover:shadow-md transition-all text-center"
+                >
+                  {/* Grayscale Logo Seal */}
+                  <div className="w-full max-w-[240px] h-20 mb-4 grayscale group-hover:grayscale-0 transition-all duration-300 flex items-center justify-center">
+                    <ImagePlaceholder
+                      label={body.placeholderLabel}
+                      aspectRatio="aspect-[2/1]"
+                      className="border-none shadow-none bg-transparent w-full h-full rounded-none"
+                      src={logo.src}
+                      alt={logo.alt}
+                      objectPosition={logo.objectPosition}
+                      objectFit="contain"
+                      sizes="240px"
+                    />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#111111]">
+                    {body.name}
+                  </h4>
+                  <p className="text-xs text-[#6B7280] mt-1 max-w-xs">
+                    {body.recordTitle}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

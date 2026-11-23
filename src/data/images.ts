@@ -48,7 +48,7 @@ export const siteImages = {
     src: "/images/statement-spirit.webp",
     alt: "Enthusiastic runners surging past the start line surrounded by celebratory blue balloons and confetti",
     objectPosition: "center 30%",
-    blurDataURL: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAoAPxFysVOvJyQjKA2g4A2JagDd3e+jK+lP486jQ5L2iM0VpL/e815q34V+K34V+K2+K34V+K34V+K2+K34V+K34V+K2+K34V+K34V+K2+K34V+K34V+K2+K34V+K2+AA==",
+    blurDataURL: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAoAPxFysVOvJyQjKA2g4A2JagDd3e+jK+lP486jQ5L2iM0VpL/e815q34V+K34V+K2+K34V+K34V+K2+K34V+K34V+K2+K34V+K2+K34V+K2+K34V+K2+AA==",
     sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 320px",
   },
   statementRoute: {
@@ -156,7 +156,27 @@ export const siteImages = {
     src: "/images/partner-spectators.webp",
     alt: "Smiling community participants and runners wearing yellow event shirts waving at the start",
     objectPosition: "center 35%",
-    blurDataURL: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAoAPxFysVOvJyQjKA2g4A2JagDd3e+jK+lP486jQ5L2iM0VpL/e815q34V+K34V+K2+K34V+K34V+K2+K34V+K34V+K2+K34V+K2+K34V+K2+K34V+K2+K34V+K2+AA==",
+    blurDataURL: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAoAPxFysVOvJyQjKA2g4A2JagDd3e+jK+lP486jQ5L2iM0VpL/e815q34V+K34V+K2+K34V+K34V+K2+K34V+K34V+K2+K34V+K2+K34V+K2+K34V+K2+AA==",
     sizes: "280px",
+  },
+
+  // Record Bodies Official Logos
+  recordGuinness: {
+    src: "/images/logo-guinness.svg",
+    alt: "Guinness World Records official seal",
+    objectPosition: "center",
+    sizes: "200px",
+  },
+  recordAsiaBook: {
+    src: "/images/logo-abr.webp",
+    alt: "Asia Book of Records official seal",
+    objectPosition: "center",
+    sizes: "200px",
+  },
+  recordWorldRecordsUnion: {
+    src: "/images/logo-wru.webp",
+    alt: "World Records Union official seal",
+    objectPosition: "center",
+    sizes: "200px",
   },
 } as const;

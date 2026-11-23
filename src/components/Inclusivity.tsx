@@ -57,9 +57,13 @@ export const Inclusivity: React.FC = () => {
             <div className="mt-10">
               <ImagePlaceholder
                 label={siteContent.inclusivity.photo.label}
-                alt={siteContent.inclusivity.photo.alt}
+                alt={siteContent.images.inclusivityParticipants.alt}
                 aspectRatio="aspect-[16/10]"
                 className="shadow-md"
+                src={siteContent.images.inclusivityParticipants.src}
+                objectPosition={siteContent.images.inclusivityParticipants.objectPosition}
+                blurDataURL={siteContent.images.inclusivityParticipants.blurDataURL}
+                sizes={siteContent.images.inclusivityParticipants.sizes}
               />
             </div>
           </div>

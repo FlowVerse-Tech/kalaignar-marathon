@@ -15,6 +15,8 @@ interface ImagePlaceholderProps {
   sizes?: string;
   fill?: boolean;
   objectPosition?: string;
+  objectFit?: "cover" | "contain";
+  imgClassName?: string;
   blurDataURL?: string;
   placeholder?: "blur" | "empty";
 }
@@ -30,6 +32,8 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   fill = true,
   objectPosition = "center",
+  objectFit = "cover",
+  imgClassName = "",
   blurDataURL,
   placeholder,
 }) => {
@@ -38,6 +42,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   // If a real image src is provided, render Next.js Image
   if (src) {
     const defaultRounded = className.includes("rounded-") ? "" : "rounded-[20px]";
+    const fitClass = objectFit === "contain" ? "object-contain p-2" : "object-cover";
     return (
       <div
         style={tiltStyle}
@@ -52,7 +57,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
           placeholder={blurDataURL ? "blur" : (placeholder || "empty")}
           blurDataURL={blurDataURL}
           style={{ objectPosition }}
-          className="object-cover transition-transform duration-700 hover:scale-105"
+          className={`${fitClass} transition-transform duration-700 hover:scale-105 ${imgClassName}`}
         />
       </div>
     );
