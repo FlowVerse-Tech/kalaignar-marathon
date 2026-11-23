@@ -106,7 +106,7 @@ export const Journey: React.FC = () => {
                     blurDataURL={editionImage?.blurDataURL}
                     sizes={editionImage?.sizes}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/40" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-white/0" />
                 </div>
 
                 {/* Top Bar with Glass-Effect Chip */}
