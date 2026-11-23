@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { MapPin, Calendar, Award } from "lucide-react";
 import { siteContent } from "@/data/content";
@@ -68,6 +69,12 @@ export const Hero: React.FC = () => {
           label={siteContent.hero.bgPlaceholderLabel}
           aspectRatio="h-full w-full"
           className="h-full w-full rounded-none border-none shadow-none"
+          src={siteContent.images.heroMain.src}
+          alt={siteContent.images.heroMain.alt}
+          objectPosition={siteContent.images.heroMain.objectPosition}
+          blurDataURL={siteContent.images.heroMain.blurDataURL}
+          priority={true}
+          sizes="100vw"
         />
       </motion.div>
 
@@ -94,16 +101,37 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-white shadow-lg"
           >
-            {/* Avatar stack placeholders */}
-            <div className="flex -space-x-2">
+            {/* Avatar stack with real participant crowd crops */}
+            <div className="flex -space-x-2 items-center">
+              <div className="relative h-7 w-7 rounded-full overflow-hidden ring-2 ring-white/50">
+                <Image
+                  src={siteContent.images.heroAvatar1.src}
+                  alt={siteContent.images.heroAvatar1.alt}
+                  fill
+                  sizes="28px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-7 w-7 rounded-full overflow-hidden ring-2 ring-white/50">
+                <Image
+                  src={siteContent.images.heroAvatar2.src}
+                  alt={siteContent.images.heroAvatar2.alt}
+                  fill
+                  sizes="28px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-7 w-7 rounded-full overflow-hidden ring-2 ring-white/50">
+                <Image
+                  src={siteContent.images.heroAvatar3.src}
+                  alt={siteContent.images.heroAvatar3.alt}
+                  fill
+                  sizes="28px"
+                  className="object-cover"
+                />
+              </div>
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#F26A1B] text-[10px] font-bold text-white ring-2 ring-white/50">
                 73K
-              </span>
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-neutral-800 text-[10px] font-bold text-white ring-2 ring-white/50">
-                GWR
-              </span>
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-[10px] font-bold text-white ring-2 ring-white/50">
-                TN
               </span>
             </div>
             <div className="text-xs sm:text-sm">
@@ -129,6 +157,11 @@ export const Hero: React.FC = () => {
                   label={siteContent.hero.latestEditionCard.thumbnailLabel}
                   aspectRatio="h-full w-full"
                   className="rounded-xl border-none shadow-none text-[8px]"
+                  src={siteContent.images.heroThumbnail.src}
+                  alt={siteContent.images.heroThumbnail.alt}
+                  objectPosition={siteContent.images.heroThumbnail.objectPosition}
+                  blurDataURL={siteContent.images.heroThumbnail.blurDataURL}
+                  sizes="80px"
                 />
               </div>
               <div className="flex-1 min-w-0">

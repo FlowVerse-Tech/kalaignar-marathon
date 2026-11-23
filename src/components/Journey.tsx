@@ -33,6 +33,21 @@ export const Journey: React.FC = () => {
     }),
   };
 
+  const getEditionImage = (year: string) => {
+    switch (year) {
+      case "2020":
+        return siteContent.images.journey2020;
+      case "2021":
+        return siteContent.images.journey2021;
+      case "2022":
+        return siteContent.images.journey2022;
+      case "2023":
+        return siteContent.images.journey2023;
+      default:
+        return undefined;
+    }
+  };
+
   return (
     <section
       id="journey"
@@ -60,6 +75,7 @@ export const Journey: React.FC = () => {
             const isCentenary = edition.year === "2023";
             const is2022 = edition.year === "2022";
             const isHovered = hoveredYear === edition.year;
+            const editionImage = getEditionImage(edition.year);
 
             // Bento spans
             let colSpan = "md:col-span-6 lg:col-span-6";
@@ -84,6 +100,11 @@ export const Journey: React.FC = () => {
                     label={edition.imageLabel}
                     aspectRatio="h-full w-full"
                     className="h-full w-full rounded-none border-none shadow-none"
+                    src={editionImage?.src}
+                    alt={editionImage?.alt}
+                    objectPosition={editionImage?.objectPosition}
+                    blurDataURL={editionImage?.blurDataURL}
+                    sizes={editionImage?.sizes}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/40" />
                 </div>

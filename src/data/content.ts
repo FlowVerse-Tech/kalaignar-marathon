@@ -4,6 +4,9 @@
  * NOTE: Strictly follows historical facts. No future venues, dates, or prices.
  */
 
+import { siteImages } from "./images";
+export { siteImages };
+
 export interface NavLink {
   label: string;
   href: string;
@@ -381,4 +384,6 @@ export const siteContent = {
     disclaimer:
       "All registration fees are 100% directed towards public health infrastructure and government relief funds.",
   },
+
+  images: siteImages,
 } as const;

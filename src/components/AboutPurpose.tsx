@@ -38,6 +38,19 @@ export const AboutPurpose: React.FC = () => {
     }
   };
 
+  const getPillarImage = (id: string) => {
+    switch (id) {
+      case "commemoration":
+        return siteContent.images.purposeCommemoration;
+      case "charity":
+        return siteContent.images.purposeCharity;
+      case "inclusivity":
+        return siteContent.images.purposeInclusivity;
+      default:
+        return undefined;
+    }
+  };
+
   return (
     <section
       id="about"
@@ -63,6 +76,7 @@ export const AboutPurpose: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-10 items-end">
           {siteContent.about.pillars.map((pillar: PillarCard, index: number) => {
             const isHovered = activePillar === pillar.id;
+            const pillarImage = getPillarImage(pillar.id);
 
             return (
               <motion.div
@@ -82,6 +96,11 @@ export const AboutPurpose: React.FC = () => {
                     label={pillar.imageLabel}
                     aspectRatio="h-full w-full"
                     className="h-full w-full rounded-none border-none shadow-none"
+                    src={pillarImage?.src}
+                    alt={pillarImage?.alt}
+                    objectPosition={pillarImage?.objectPosition}
+                    blurDataURL={pillarImage?.blurDataURL}
+                    sizes={pillarImage?.sizes}
                   />
                   {/* Subtle darkening overlay so text is crisp */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-300" />

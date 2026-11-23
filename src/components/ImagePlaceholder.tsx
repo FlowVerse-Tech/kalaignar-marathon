@@ -14,6 +14,9 @@ interface ImagePlaceholderProps {
   priority?: boolean;
   sizes?: string;
   fill?: boolean;
+  objectPosition?: string;
+  blurDataURL?: string;
+  placeholder?: "blur" | "empty";
 }
 
 export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
@@ -26,15 +29,19 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   priority = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   fill = true,
+  objectPosition = "center",
+  blurDataURL,
+  placeholder,
 }) => {
   const tiltStyle = tilt ? { transform: `rotate(${tilt}deg)` } : undefined;
 
   // If a real image src is provided, render Next.js Image
   if (src) {
+    const defaultRounded = className.includes("rounded-") ? "" : "rounded-[20px]";
     return (
       <div
         style={tiltStyle}
-        className={`relative overflow-hidden rounded-[20px] transition-transform duration-500 ease-out ${aspectRatio} ${className}`}
+        className={`relative overflow-hidden transition-transform duration-500 ease-out ${defaultRounded} ${aspectRatio} ${className}`}
       >
         <Image
           src={src}
@@ -42,6 +49,9 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
           fill={fill}
           priority={priority}
           sizes={sizes}
+          placeholder={blurDataURL ? "blur" : (placeholder || "empty")}
+          blurDataURL={blurDataURL}
+          style={{ objectPosition }}
           className="object-cover transition-transform duration-700 hover:scale-105"
         />
       </div>

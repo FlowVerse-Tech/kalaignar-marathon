@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Compass, Waves, Landmark } from "lucide-react";
+import { siteContent } from "@/data/content";
 import { useMounted } from "@/hooks/useMounted";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 
@@ -80,6 +81,11 @@ export const MarathonCity: React.FC = () => {
                   aspectRatio="aspect-[4/3]"
                   tilt={3}
                   className="shadow-2xl border-2 border-white/20"
+                  src={siteContent.images.cityMarina.src}
+                  alt={siteContent.images.cityMarina.alt}
+                  objectPosition={siteContent.images.cityMarina.objectPosition}
+                  blurDataURL={siteContent.images.cityMarina.blurDataURL}
+                  sizes={siteContent.images.cityMarina.sizes}
                 />
               </motion.div>
             </div>

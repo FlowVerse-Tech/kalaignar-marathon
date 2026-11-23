@@ -58,6 +58,11 @@ export const Statement: React.FC = () => {
               aspectRatio="aspect-[4/3]"
               tilt={-8}
               className="shadow-2xl border-white border-4"
+              src={siteContent.images.statementSpirit.src}
+              alt={siteContent.images.statementSpirit.alt}
+              objectPosition={siteContent.images.statementSpirit.objectPosition}
+              blurDataURL={siteContent.images.statementSpirit.blurDataURL}
+              sizes={siteContent.images.statementSpirit.sizes}
             />
           </motion.div>
         </div>
@@ -70,6 +75,11 @@ export const Statement: React.FC = () => {
               aspectRatio="aspect-[4/3]"
               tilt={8}
               className="shadow-2xl border-white border-4"
+              src={siteContent.images.statementRoute.src}
+              alt={siteContent.images.statementRoute.alt}
+              objectPosition={siteContent.images.statementRoute.objectPosition}
+              blurDataURL={siteContent.images.statementRoute.blurDataURL}
+              sizes={siteContent.images.statementRoute.sizes}
             />
           </motion.div>
         </div>
@@ -115,12 +125,22 @@ export const Statement: React.FC = () => {
             aspectRatio="aspect-[4/3]"
             tilt={-2}
             className="shadow-md"
+            src={siteContent.images.statementSpirit.src}
+            alt={siteContent.images.statementSpirit.alt}
+            objectPosition={siteContent.images.statementSpirit.objectPosition}
+            blurDataURL={siteContent.images.statementSpirit.blurDataURL}
+            sizes={siteContent.images.statementSpirit.sizes}
           />
           <ImagePlaceholder
             label={siteContent.statement.rightPhoto.label}
             aspectRatio="aspect-[4/3]"
             tilt={2}
             className="shadow-md"
+            src={siteContent.images.statementRoute.src}
+            alt={siteContent.images.statementRoute.alt}
+            objectPosition={siteContent.images.statementRoute.objectPosition}
+            blurDataURL={siteContent.images.statementRoute.blurDataURL}
+            sizes={siteContent.images.statementRoute.sizes}
           />
         </div>
       </div>
