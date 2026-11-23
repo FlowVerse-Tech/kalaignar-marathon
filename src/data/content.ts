@@ -383,6 +383,12 @@ export const siteContent = {
       "© 2020–2026 Kalaignar Memorial International Marathon. All rights reserved.",
     disclaimer:
       "All registration fees are 100% directed towards public health infrastructure and government relief funds.",
+    credits: {
+      label: "Built by",
+      company: "Flowverse Tech OPC Pvt. Ltd.",
+      url: "https://flowverse-tech.com",
+      displayUrl: "flowverse-tech.com",
+    },
   },
 
   images: siteImages,

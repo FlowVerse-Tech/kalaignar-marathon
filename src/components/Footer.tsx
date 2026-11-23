@@ -242,6 +242,30 @@ export const Footer: React.FC = () => {
             </span>
           </div>
         </div>
+
+        {/* Bottom-most Attribution */}
+        <div className="mt-6 pt-4 border-t border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#9CA3AF]">
+          <p className="flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
+            <span>{siteContent.footer.credits.label}</span>
+            <a
+              href={siteContent.footer.credits.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#6B7280] hover:text-[#F26A1B] transition-colors underline decoration-black/15 underline-offset-2 hover:decoration-[#F26A1B]"
+            >
+              {siteContent.footer.credits.company}
+            </a>
+          </p>
+          <a
+            href={siteContent.footer.credits.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 font-medium text-[#6B7280] hover:text-[#F26A1B] transition-colors"
+          >
+            <span>{siteContent.footer.credits.displayUrl}</span>
+            <span className="text-[10px] text-[#F26A1B]" aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     </footer>
   );
