@@ -54,7 +54,7 @@ export const siteContent = {
     name: "Kalaignar Memorial International Marathon",
     shortName: "Kalaignar Marathon",
     titleLockup: "/images/marathon-title-transparent.webp",
-    logoOriginal: "/images/marathon-title-lockup.webp",
+    logoOriginal: "/images/marathon-title-lockup.avif",
     motto: "RUN FOR HEALTH • RUN FOR HUMANITY",
     visionStatement:
       "To preserve the legacy of Kalaignar through a global running movement that promotes health, fitness, social responsibility and unity, while positioning Tamil Nadu as a leading destination for international marathon events.",
