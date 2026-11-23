@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { siteContent } from "@/data/content";
 
@@ -83,15 +84,28 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Blurb (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#111111]">
-                  {siteContent.brand.shortName}
-                </span>
-                <span className="h-2 w-2 rounded-full bg-[#F26A1B]" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="relative h-12 w-20 shrink-0">
+                  <Image
+                    src={siteContent.brand.logo}
+                    alt={`${siteContent.brand.name} Logo`}
+                    fill
+                    sizes="80px"
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#111111]">
+                      {siteContent.brand.shortName}
+                    </span>
+                    <span className="h-2 w-2 rounded-full bg-[#F26A1B]" />
+                  </div>
+                  <p className="mt-0.5 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#F26A1B]">
+                    {siteContent.brand.motto}
+                  </p>
+                </div>
               </div>
-              <p className="mt-1 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#F26A1B]">
-                {siteContent.brand.motto}
-              </p>
               <p className="mt-4 text-xs sm:text-sm text-[#6B7280] leading-relaxed max-w-md">
                 {siteContent.footer.aboutBlurb}
               </p>

@@ -12,6 +12,13 @@ export interface ImageSlotConfig {
 }
 
 export const siteImages = {
+  // Official Brand Logo
+  marathonLogo: {
+    src: "/images/marathon-logo-cropped.webp",
+    alt: "Kalaignar Memorial International Marathon Official Logo",
+    objectPosition: "center",
+  },
+
   // Hero Section
   heroMain: {
     src: "/images/hero-main.webp",

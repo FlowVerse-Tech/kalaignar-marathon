@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ShieldCheck } from "lucide-react";
 import { siteContent } from "@/data/content";
 import { Button } from "./Button";
@@ -32,29 +33,47 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 flex items-center justify-between">
-          {/* Left: Wordmark / Logo placeholder */}
+          {/* Left: Brand Logo & Wordmark */}
           <Link
             href="#hero"
-            className="group flex flex-col focus:outline-hidden"
+            className="group flex items-center gap-3 focus:outline-hidden"
             aria-label="Kalaignar Marathon Home"
           >
-            <div className="flex items-center gap-2">
-              <span
-                className={`text-lg sm:text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-200 ${
-                  scrolled ? "text-[#111111]" : "text-white"
-                }`}
-              >
-                {siteContent.brand.shortName}
-              </span>
-              <span className="h-2.5 w-2.5 rounded-full bg-[#F26A1B] shrink-0 animate-pulse" />
-            </div>
-            <span
-              className={`text-[9px] sm:text-[10px] font-semibold tracking-widest uppercase transition-colors duration-200 ${
-                scrolled ? "text-[#6B7280]" : "text-white/70"
+            <div
+              className={`relative h-11 w-16 sm:h-12 sm:w-20 shrink-0 rounded-xl transition-all duration-300 ${
+                scrolled
+                  ? "bg-transparent"
+                  : "bg-white/95 backdrop-blur-md px-1.5 py-1 shadow-sm border border-white/50"
               }`}
             >
-              RUN FOR HEALTH • RUN FOR HUMANITY
-            </span>
+              <Image
+                src={siteContent.brand.logo}
+                alt={`${siteContent.brand.name} Logo`}
+                fill
+                sizes="(max-width: 640px) 64px, 80px"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span
+                  className={`text-lg sm:text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-200 ${
+                    scrolled ? "text-[#111111]" : "text-white"
+                  }`}
+                >
+                  {siteContent.brand.shortName}
+                </span>
+                <span className="h-2 w-2 rounded-full bg-[#F26A1B] shrink-0 animate-pulse" />
+              </div>
+              <span
+                className={`text-[9px] sm:text-[10px] font-semibold tracking-widest uppercase transition-colors duration-200 ${
+                  scrolled ? "text-[#6B7280]" : "text-white/70"
+                }`}
+              >
+                RUN FOR HEALTH • RUN FOR HUMANITY
+              </span>
+            </div>
           </Link>
 
           {/* Center Links (Desktop) */}
@@ -135,13 +154,24 @@ export const Navbar: React.FC = () => {
       >
         <div>
           <div className="flex items-center justify-between pb-6 border-b border-neutral-100">
-            <div>
-              <span className="text-base font-bold text-[#111111] tracking-tight">
-                {siteContent.brand.shortName}
-              </span>
-              <p className="text-[10px] text-[#6B7280] font-semibold uppercase tracking-wider">
-                Digital Portfolio
-              </p>
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-9 w-14 shrink-0">
+                <Image
+                  src={siteContent.brand.logo}
+                  alt={`${siteContent.brand.name} Logo`}
+                  fill
+                  sizes="56px"
+                  className="object-contain"
+                />
+              </div>
+              <div>
+                <span className="text-base font-bold text-[#111111] tracking-tight">
+                  {siteContent.brand.shortName}
+                </span>
+                <p className="text-[10px] text-[#6B7280] font-semibold uppercase tracking-wider">
+                  Official Marathon
+                </p>
+              </div>
             </div>
             <button
               type="button"

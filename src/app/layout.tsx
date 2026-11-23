@@ -53,7 +53,13 @@ export const metadata: Metadata = {
     description: siteContent.hero.subparagraph,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/images/favicon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/images/favicon-512.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
